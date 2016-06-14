@@ -1,0 +1,21 @@
+version: "2"
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - /var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: secret
+  api:
+    build: .
+    command: "/env/bin/python ./run.py"
+    depends_on:
+      - db
+    links:
+      - db
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: postgresql+pypostgresql://postgres:secret@db/postgres
