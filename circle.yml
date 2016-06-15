@@ -8,7 +8,7 @@ dependencies:
 
 test:
   override:
-    - docker run -it todo-api "/env/bin/python -m unittest discover"
+    - docker run -it todo-api /env/bin/python -m unittest discover
 
 deployment:
   builds:
