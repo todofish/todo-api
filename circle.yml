@@ -15,6 +15,6 @@ test:
 deployment:
   builds:
     branch: master
-      commands:
-        - sudo apt-get update; sudo apt-get install awscli
-        - $(aws ecr get-login)
+    commands:
+      - sudo apt-get update; sudo apt-get install awscli
+      - $(aws ecr get-login)
