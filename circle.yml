@@ -3,6 +3,8 @@ machine:
     - docker
 
 dependencies:
+  pre:
+    - pip install awscli
   override:
     - docker build -t todo-api .
 
@@ -14,5 +16,4 @@ deployment:
   builds:
     branch: master
     commands:
-      - sudo apt-get update; sudo apt-get install awscli
       - $(aws ecr get-login)
