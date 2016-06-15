@@ -17,3 +17,5 @@ deployment:
     branch: master
     commands:
       - $(aws ecr get-login)
+      - docker tag todo-api:latest $DOCKER_REPO:build-$CIRCLE_BUILD_NUM
+      - docker push $DOCKER_REPO:build-$CIRCLE_BUILD_NUM
