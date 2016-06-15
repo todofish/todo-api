@@ -10,7 +10,7 @@ dependencies:
 
 test:
   override:
-    - python -m unittest discover
+    - docker run -it todo-api "python -m unittest discover"
 
 deployment:
   builds:
